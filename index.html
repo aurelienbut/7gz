@@ -84,22 +84,23 @@
                     <h2 class="contact-title">Contactez-moi</h2>
                     <p class="contact-text">Un projet en tête ? Une instru qui vous manque ? Contactez-moi pour discuter de vos besoins. Je suis basé à Nantes et disponible pour collaborer.</p>
                 </div>
-                <div class="contact-form animate-on-scroll fade-in-right" style="transition-delay: 0.2s;">
+                <form id="contactForm" class="contact-form animate-on-scroll fade-in-right" style="transition-delay: 0.2s;" method="POST" action="/api/contact">
                     <div class="form-group">
-                        <label class="input-label">Nom</label>
-                        <input type="text" class="input-field" placeholder="Votre nom">
+                        <label for="nameInput" class="input-label">Nom</label>
+                        <input type="text" id="nameInput" name="name" class="input-field" placeholder="Votre nom" required>
                     </div>
                     <div class="form-group">
-                        <label class="input-label">Email</label>
-                        <input type="email" class="input-field" placeholder="Votre email">
+                        <label for="emailInput" class="input-label">Email</label>
+                        <input type="email" id="emailInput" name="email" class="input-field" placeholder="Votre email" required>
                     </div>
                     <div class="form-group">
-                        <label class="input-label">Message</label>
-                        <textarea class="input-field" placeholder="Parlez-moi de votre projet..."></textarea>
+                        <label for="messageInput" class="input-label">Message</label>
+                        <textarea id="messageInput" name="message" class="input-field" placeholder="Parlez-moi de votre projet..." required></textarea>
                     </div>
-                    <button class="btn btn-dark-solid">Envoyer le message</button>
+                    <button type="submit" id="submitButton" class="btn btn-dark-solid">Envoyer le message</button>
+                    <div id="formMessage" style="margin-top: 15px; font-weight: 500; transition: opacity 0.3s ease;"></div>
+                </form>
                 </div>
-            </div>
         </div>
     </section>
 

@@ -1,0 +1,54 @@
+# Dépendances
+node_modules/
+
+# Fichiers de log
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Fichiers de configuration d'environnement locaux
+# (Si vous en utilisez pour le développement local, ne les committez jamais)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache de build et répertoires de sortie
+# (Bien que pour votre projet actuel, ce ne soit pas directement applicable,
+# c'est une bonne pratique pour des projets plus complexes)
+.parcel-cache/
+dist/
+build/
+out/
+
+# Fichiers générés par Vercel localement
+.vercel/
+
+# Fichiers de système d'exploitation
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+._*
+
+# Fichiers d'éditeur de code et IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers de test et de couverture (si vous en ajoutez plus tard)
+coverage/
+.nyc_output/
+
+# Fichiers temporaires divers
+*.tmp
+*.swp
+*~
+
+# Dépendances optionnelles de certains paquets
+optionalDependencies/
