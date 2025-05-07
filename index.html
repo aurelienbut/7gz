@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7gz | Beatmaker Nantes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- LIGNES SUPPRIMÉES :
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+    -->
+
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">7gz</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#tracks" class="nav-link">Work</a>
+                <a href="#approach" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <p class="supertext hero-claim">Beatmaker & Producteur Nantais</p>
+                <h1 class="display hero-title">7GZ</h1>
+                <p class="hero-desc">Producteur basé à Nantes, 7gz crée des instrus uniques pour artistes. Des sonorités actuelles avec une touche personnelle, prêtes à donner vie à vos projets.</p>
+                <div class="btn-group">
+                    <a href="#tracks" class="btn btn-primary">Découvrir les Beats</a>
+                    <a href="#contact" class="btn btn-outline">Prendre Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="waveform waveform-top-left">
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+        </div>
+        <div class="waveform">
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+            <div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div><div class="waveform-bar"></div>
+        </div>
+    </section>
+
+    <section id="tracks" class="featured">
+        <div class="featured-grid-accent"></div>
+        
+        <div class="container">
+            <div class="section-header animate-on-scroll fade-in-up">
+                <div class="section-line"></div>
+                <h2 class="section-title">Productions</h2>
+                <p class="section-subtitle">L'univers sonore de 7gz, forgé à Nantes.</p>
+            </div>
+            <div class="beatstars-player-container animate-on-scroll fade-in-up" style="transition-delay: 0.15s;">
+                <iframe src="https://player.beatstars.com/?storeId=150448" width="100%" height="800" style="border: none; max-width:1024px; display: block; margin: 0 auto;" loading="lazy">Votre navigateur ne supporte pas les iframes. Veuillez visiter <a href="https://player.beatstars.com/?storeId=150448" target="_blank">le lecteur BeatStars directement</a>.</iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION MA VISION MUSICALE SUPPRIMÉE -->
+
+    <section id="contact" class="contact">
+        <div class="contact-grid-accent"></div>
+
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll fade-in-left">
+                    <div class="section-line"></div>
+                    <h2 class="contact-title">Contactez-moi</h2>
+                    <p class="contact-text">Un projet en tête ? Une instru qui vous manque ? Contactez-moi pour discuter de vos besoins. Je suis basé à Nantes et disponible pour collaborer.</p>
+                </div>
+                <div class="contact-form animate-on-scroll fade-in-right" style="transition-delay: 0.2s;">
+                    <div class="form-group">
+                        <label class="input-label">Nom</label>
+                        <input type="text" class="input-field" placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label class="input-label">Email</label>
+                        <input type="email" class="input-field" placeholder="Votre email">
+                    </div>
+                    <div class="form-group">
+                        <label class="input-label">Message</label>
+                        <textarea class="input-field" placeholder="Parlez-moi de votre projet..."></textarea>
+                    </div>
+                    <button class="btn btn-dark-solid">Envoyer le message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid-accent"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand animate-on-scroll fade-in-up">
+                    <div class="footer-logo">7gz</div>
+                    <p class="footer-desc">7gz, beatmaker à Nantes. Productions hip-hop, trap, et instrumentales sur mesure pour artistes et créateurs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">IG</a><a href="#" class="social-link">YT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright animate-on-scroll fade-in">
+                <p>© 2024 7gz. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
