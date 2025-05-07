@@ -207,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Waveform en haut à gauche (existant) */
 .waveform-top-left {
-    position: absolute; top: 90px; left: 0; width: 40%;
+    position: absolute; top: 40px; left: 0; width: 40%;
     max-width: 500px; height: 100px; display: flex;
     align-items: center; gap: 3px; z-index: 1;
 }
@@ -447,7 +447,7 @@ textarea.input-field { min-height: 150px; resize: vertical; }
     .approach-title { font-size: 3rem; }
     .approach-grid { gap: 60px; }
     .waveform, .waveform-top-left { width: 30%; max-width: 350px; }
-    .waveform-top-left { top: 90px; }
+    .waveform-top-left { top: 30px; }
     .waveform { bottom: 60px; }
 }
 @media (max-width: 992px) {
@@ -487,7 +487,7 @@ textarea.input-field { min-height: 150px; resize: vertical; }
     .hamburger.active .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     .section-title { font-size: 3rem; }
     .waveform, .waveform-top-left { width: 50%; height: 80px; gap: 2px; }
-    .waveform-top-left { top: 90px; }
+    .waveform-top-left { top: 30px; }
     .waveform { bottom: 30px; }
     /* LIGNES SUPPRIMÉES (styles du curseur pour mobile) :
     .cursor, .cursor-dot { display: none !important; }
@@ -503,7 +503,7 @@ textarea.input-field { min-height: 150px; resize: vertical; }
 }
 @media (max-width: 480px) {
     .waveform, .waveform-top-left { width: 60%; height: 60px; gap: 1px; }
-    .waveform-top-left { top: 90px; }
+    .waveform-top-left { top: 0px; }
     .waveform { bottom: 20px; }
 
     .featured::before, .approach::before, .contact::before, .footer::before {
