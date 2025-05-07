@@ -28,7 +28,7 @@ export default async function handler(req, res) {
             },
             // Optionnel pour certains fournisseurs ou configurations locales (à utiliser avec prudence)
             // tls: {
-            //   rejectUnauthorized: false
+            //   rejectUnauthorize  d: false
             // }
         });
 
