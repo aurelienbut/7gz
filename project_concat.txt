@@ -1,9 +1,8 @@
 --- Concatenation du projet : C:\Users\aurel\Documents\7gz\website ---
---- Généré le : 2025-05-07 17:37:25.872670 ---
+--- Généré le : 2025-05-08 12:14:53.770657 ---
 
---- Fichiers Inclus (3) ---
+--- Fichiers Inclus (2) ---
 - index.html
-- script.js
 - style.css
 
 ========================================
@@ -24,24 +23,7 @@
 </head>
 
 <body>
-    <!-- LIGNES SUPPRIMÉES :
-    <div class="cursor"></div>
-    <div class="cursor-dot"></div>
-    -->
-
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="#" class="nav-logo">7gz</a>
-            <div class="nav-links" id="navLinks">
-                <a href="#tracks" class="nav-link">Work</a>
-                <a href="#approach" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-                <span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span>
-            </button>
-        </div>
-    </nav>
+  
 
     <section class="hero">
         <div class="container hero-grid">
@@ -139,142 +121,6 @@
 </html>
 
 --- Fin du fichier : index.html ---
-
---- Début du fichier : script.js ---
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Hamburger Menu Script
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const navLinks = document.getElementById('navLinks');
-    const navElement = document.querySelector('.nav');
-
-    if (hamburgerBtn && navLinks && navElement) {
-        hamburgerBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburgerBtn.classList.toggle('active');
-            navElement.classList.toggle('mobile-menu-open'); // Pour ajouter un style au nav si besoin
-        });
-
-        navLinks.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburgerBtn.classList.remove('active');
-                    navElement.classList.remove('mobile-menu-open');
-                }
-            });
-        });
-    }
-
-    // Script pour les animations au défilement
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    animatedElements.forEach(element => { observer.observe(element); });
-
-    // --- NOUVEAU CODE POUR LE FORMULAIRE DE CONTACT ---
-    const contactForm = document.getElementById('contactForm');
-    const nameInput = document.getElementById('nameInput');
-    const emailInput = document.getElementById('emailInput');
-    const messageInput = document.getElementById('messageInput');
-    const submitButton = document.getElementById('submitButton');
-    const formMessage = document.getElementById('formMessage');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Empêche la soumission HTML par défaut
-
-            formMessage.textContent = ''; // Réinitialiser le message
-            formMessage.style.opacity = '0'; // Rendre le message invisible au début
-
-            const name = nameInput.value.trim();
-            const email = emailInput.value.trim();
-            const message = messageInput.value.trim();
-
-            // Validation côté client simple
-            if (!name || !email || !message) {
-                formMessage.textContent = 'Veuillez remplir tous les champs.';
-                formMessage.style.color = 'red';
-                formMessage.style.opacity = '1'; // Rendre le message visible
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                formMessage.textContent = 'Veuillez entrer une adresse e-mail valide.';
-                formMessage.style.color = 'red';
-                formMessage.style.opacity = '1'; // Rendre le message visible
-                return;
-            }
-
-            // Afficher un état de chargement
-            const originalButtonText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Envoi en cours...';
-            formMessage.textContent = 'Envoi en cours...';
-            formMessage.style.color = 'var(--gray-50)'; // Ou une autre couleur neutre
-            formMessage.style.opacity = '1'; // Rendre le message visible
-
-
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, email, message }),
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    formMessage.textContent = result.message || 'Message envoyé avec succès !';
-                    formMessage.style.color = 'green';
-                    contactForm.reset(); // Réinitialiser le formulaire après succès
-                } else {
-                    formMessage.textContent = result.message || 'Erreur lors de l\'envoi du message.';
-                    formMessage.style.color = 'red';
-                }
-            } catch (error) {
-                console.error('Erreur de soumission du formulaire:', error);
-                formMessage.textContent = 'Une erreur réseau est survenue. Veuillez réessayer.';
-                formMessage.style.color = 'red';
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
-                formMessage.style.opacity = '1'; // S'assurer que le message final est visible
-
-                // Optionnel : faire disparaître le message après quelques secondes
-                // Sauf si c'est un message d'erreur persistant qu'on voudrait laisser
-                if (formMessage.style.color === 'green' || formMessage.textContent.includes('réessayer')) {
-                     setTimeout(() => {
-                        formMessage.style.opacity = '0';
-                        // Réinitialiser le texte au cas où pour la prochaine soumission
-                        setTimeout(() => {
-                            if (formMessage.style.opacity === '0') { // S'il n'a pas été ré-affiché entre temps
-                                formMessage.textContent = '';
-                            }
-                        }, 300); // Temps pour que l'opacité transitionne
-                    }, 5000); // 5 secondes avant de masquer
-                }
-            }
-        });
-    }
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expression régulière simple pour la validation d'email
-        return re.test(String(email).toLowerCase());
-    }
-    // --- FIN DU NOUVEAU CODE POUR LE FORMULAIRE DE CONTACT ---
-});
-
---- Fin du fichier : script.js ---
 
 --- Début du fichier : style.css ---
 
@@ -487,7 +333,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Waveform en haut à gauche (existant) */
 .waveform-top-left {
-    position: absolute; top: 90px; left: 0; width: 40%;
+    position: absolute; top: 40px; left: 0; width: 40%;
     max-width: 500px; height: 100px; display: flex;
     align-items: center; gap: 3px; z-index: 1;
 }
@@ -727,7 +573,7 @@ textarea.input-field { min-height: 150px; resize: vertical; }
     .approach-title { font-size: 3rem; }
     .approach-grid { gap: 60px; }
     .waveform, .waveform-top-left { width: 30%; max-width: 350px; }
-    .waveform-top-left { top: 90px; }
+    .waveform-top-left { top: 30px; }
     .waveform { bottom: 60px; }
 }
 @media (max-width: 992px) {
@@ -767,7 +613,7 @@ textarea.input-field { min-height: 150px; resize: vertical; }
     .hamburger.active .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     .section-title { font-size: 3rem; }
     .waveform, .waveform-top-left { width: 50%; height: 80px; gap: 2px; }
-    .waveform-top-left { top: 90px; }
+    .waveform-top-left { top: 30px; }
     .waveform { bottom: 30px; }
     /* LIGNES SUPPRIMÉES (styles du curseur pour mobile) :
     .cursor, .cursor-dot { display: none !important; }
@@ -783,7 +629,7 @@ textarea.input-field { min-height: 150px; resize: vertical; }
 }
 @media (max-width: 480px) {
     .waveform, .waveform-top-left { width: 60%; height: 60px; gap: 1px; }
-    .waveform-top-left { top: 90px; }
+    .waveform-top-left { top: 0px; }
     .waveform { bottom: 20px; }
 
     .featured::before, .approach::before, .contact::before, .footer::before {
